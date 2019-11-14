@@ -17,8 +17,9 @@ const requestHandler = (req, res) => {
         return res.end(); //to exit after executing this code
     }
 
-     if (url === '/message' && method === 'POST') {
+    if (url === '/message' && method === 'POST') {
         const body = [];
+
         req.on('data', (chunk) => { //This event listner listen to incoming data from user input as a chunks
            console.log('chunk', chunk);
            body.push(chunk);
@@ -39,7 +40,7 @@ const requestHandler = (req, res) => {
 
             });//Asyanchoronous file writter method
         });
-     }
+    }
 
      //set response
     res.setHeader('Content-type', 'text/html');//name of header and its value//Because: We are writting HTML code so we need to tell the browser or else it will not know
